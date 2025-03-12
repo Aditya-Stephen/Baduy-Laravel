@@ -914,7 +914,7 @@ li.social-links a {
 
 
 /*------------------------------------------------------------------
-    TESTIMONIALS
+    ARTIKEL
 -------------------------------------------------------------------*/
 
 .logos img {
@@ -992,6 +992,120 @@ li.social-links a {
 
 .testimonial p:after {
     display: none;
+}
+
+/* banner dan artikel section*/
+
+.banner {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
+
+}
+
+/* banner buat hp*/
+@media (max-width: 768px) {
+    .banner {
+        height: 200px;
+        background-size: contain;
+    }
+}
+
+
+.article-section {
+    padding: 50px 0;
+}
+
+.article-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.article-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.article-content ul li {
+    margin-bottom: 10px;
+}
+
+.author-profile {
+    margin-right: 20px;
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.article-post {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.article-post h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.article-post h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.article-post .date {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.article-post p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+.sidebar {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.sidebar h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    color: #007bff;
 }
 
 
@@ -2869,7 +2983,7 @@ select.mobile-device {
 
 
 .banner-bg-1{
-	background: url(uploads/inner-bg.jpg);
+	background: url(images/banner-artikel.jpg);
 	padding: 120px 0;	
 	background-clip: initial;
 	background-color: rgba(0, 0, 0, 0);
@@ -3332,7 +3446,3 @@ select.mobile-device {
 .dmtop.show {
     bottom: 20px;
 }
-
-
-
-

@@ -105,7 +105,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="banner">
+                    <div class="banner">
 						<h2>Artikel</h2>
 						<ul class="page-title-link">
 							<li><a href="#">Home</a></li>
@@ -117,13 +117,57 @@
 		</div>
 	</div>
 
+
+    <div class="article-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="article-content">
+                        <!-- Artikel Pertama -->
+                        <div class="article-post">
+                            <div class="author-profile">
+                                <img src="{{ asset('images/user-profile.jpg') }}" alt="Frederick O’Brien" class="profile-image">
+                            </div>
+                            <div class="post-content">
+                                <h3>Frederick O’Brien</h3>
+                                <h4>Svette 5 And The Future Of Frameworks: A Chat With Rich Harris</h4>
+                                <p class="date">JANUARY 28, 2025</p>
+                                <p>After months of anticipation, debate, and even a bit of apprehension, Svelte 5 arrived earlier this year. Frederick O’Brien caught up with its creator, Rich Harris, to talk about the path that brought him and his team here and what lies ahead.</p>
+                                <a href="#" class="read-more">Read more...</a>
+                            </div>
+                        </div>
+    
+                        <!-- Artikel Kedua -->
+                        <div class="article-post">
+                            <div class="author-profile">
+                                <img src="{{ asset('images/user-profile.jpg') }}" alt="Always Salvation Users" class="profile-image">
+                            </div>
+                            <div class="post-content">
+                                <h3>Always Salvation Users</h3>
+                                <p>Artikel tentang Always Salvation Users.</p>
+                                <a href="#" class="read-more">Read more...</a>
+                            </div>
+                        </div>
+                    </div>
+                <div class="col-md-4">
+                    <div class="sidebar">
+                        <h3>Kategori</h3>
+                        <ul>
+                            <li><a href="#">Trending</a></li>
+                            <li><a href="#">Terbaru</a></li>
+                            <li><a href="#">Budaya & Tradisi</a></li>
+                            <li><a href="#">Kearifan Lokal</a></li>
+                            <li><a href="#">Mitos & Kepercayaan</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div id="test-box" class="section wb">
         <div class="container">
-            <div class="section-title text-center">
-                <h3>Artikel</h3>
-                <p class="lead">terimakasih for all our awesome testimonials! There are hundreds of our happy customers! <br>Let's see what others say about GoodWEB Solutions website template!</p>
-            </div><!-- end title -->
-
             <div class="row">
                 <div class="col-md-12 col-sm-12">
                     <div class="testi-carousel owl-carousel owl-theme">
