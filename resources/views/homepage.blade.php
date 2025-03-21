@@ -15,8 +15,7 @@
     <meta name="author" content="">
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="{{ asset('images/apple-touch-icon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('images/logobadui1.webp') }}" type="image/png" />
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -28,10 +27,6 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
-    <!-- Site Icons -->
-    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="{{ asset('images/apple-touch-icon.png') }}">
-    
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -49,7 +44,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="images/logos/logo.png" alt="image"></a>
+                    <a class="navbar-brand" href="index.html"><img src="images/logobadui1.webp" class="gambar-kecil" alt="image"></a>
+                    
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -57,6 +53,7 @@
                         <li><a href="{{ url('/aboutUs') }}">About Us</a></li>
                         <li><a href="{{ url('/marketplace') }}">Product</a></li>
                         <li><a href="{{ url('/artikel') }}">Article</a></li>
+                        <li><a href="{{ url('/login') }}">Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -163,123 +160,32 @@
         </div><!-- end container -->
     </div><!-- end section -->
 	
-	<div class="parallax section parallax-off" data-stellar-background-ratio="0.9" style="background-image:url('images/suasana1.jpg');">
+	<div class="parallax section parallax-off" data-stellar-background-ratio="0.9" style="background-image:url('images/bgbadui.jpg')">
         <div class="container">
             <div class="row text-center stat-wrap">
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <span data-scroll class="global-radius icon_wrap effect-1"><i class="flaticon-briefcase"></i></span>
-                    <p class="stat_count">1200</p>
-                    <h3>Complated Projects</h3>
+                    <h3>Kain Tenun</h3>
                 </div><!-- end col -->
 
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <span data-scroll class="global-radius icon_wrap effect-1"><i class="flaticon-happy"></i></span>
-                    <p class="stat_count">3210</p>
-                    <h3>Happy Clients</h3>
+                    <h3>Madu Badui</h3>
                 </div><!-- end col -->
 
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <span data-scroll class="global-radius icon_wrap effect-1"><i class="flaticon-idea"></i></span>
-                    <p class="stat_count">3781</p>
-                    <h3>Customer Services</h3>
+                    <h3>Obat Herbal</h3>
                 </div><!-- end col -->
 
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <span data-scroll class="global-radius icon_wrap effect-1"><i class="flaticon-customer-service"></i></span>
-                    <p class="stat_count">4300</p>
-                    <h3>Answered Questions</h3>
+                    <h3>Topi Suku Badui</h3>
                 </div><!-- end col -->
             </div><!-- end row -->
         </div><!-- end container -->
     </div><!-- end section -->
 
-    <div class="parallax section noover" data-stellar-background-ratio="0.7">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-6">
-                    <div class="customwidget text-left">
-                        <h1>Beautiful Websites</h1>
-                        <p>Full access control of the background parallax effects, <br>change your awesome background elements and edit colors from style.css or colors.css</p>
-                        <ul class="list-inline">
-                            <li><i class="fa fa-check"></i> Custom Sections</li>
-                            <li><i class="fa fa-check"></i> Parallax's</li>
-                            <li><i class="fa fa-check"></i> Icons & PSD</li>
-                            <li><i class="fa fa-check"></i> Limitless Colors</li>
-                        </ul><!-- end list -->
-                        <a href="#services" data-scroll class="btn btn-light btn-radius btn-brd">Learn More</a>
-                    </div>
-                </div><!-- end col -->
-				<div class="col-md-6">
-                    <div class="text-center image-center hidden-sm hidden-xs">
-                        <img src="uploads/device_03.png" alt="" class="img-responsive wow fadeInUp">
-                    </div>
-                </div>
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
-
-    <div id="services" class="parallax section lb">
-        <div class="container">
-            <div class="section-title text-center">
-                <h3>Our Service</h3>
-                <p class="lead">Our Service unlimited solutions to all your business needs. in the installation package we prepare search engine optimization, social media support, we provide corporate identity and graphic design services.</p>
-            </div><!-- end title -->
-
-            <div class="owl-services owl-carousel owl-theme">
-                <div class="service-widget">
-                    <div class="post-media wow fadeIn">
-                        <a href="uploads/service_01.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
-                        <img src="uploads/service_01.jpg" alt="" class="img-responsive img-rounded">
-                    </div>
-					<div class="service-dit">
-						<h3>Smart Swatch Editions</h3>
-						<p>Aliquam sagittis ligula et sem lacinia, ut facilisis enim sollicitudin. Proin nisi est, convallis nec purus vitae, iaculis posuere sapien. Cum sociis natoque.</p>
-					</div>
-                </div>
-                <!-- end service -->
-
-                <div class="service-widget">
-                    <div class="post-media wow fadeIn">
-                        <a href="uploads/service_02.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
-                        <img src="uploads/service_02.jpg" alt="" class="img-responsive img-rounded">
-                    </div>
-					<div class="service-dit">
-						<h3>Web UI Kit Design</h3>
-						<p>Duis at tellus at dui tincidunt scelerisque nec sed felis. Suspendisse id dolor sed leo rutrum euismod. Nullam vestibulum fermentum erat. It nam auctor. </p>
-					</div>
-                </div>
-                <!-- end service -->
-
-                <div class="service-widget">
-                    <div class="post-media wow fadeIn">
-                        <a href="uploads/service_03.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
-                        <img src="uploads/service_03.jpg" alt="" class="img-responsive img-rounded">
-                    </div>
-					<div class="service-dit">
-						<h3>Mobile Optimization</h3>
-						<p>Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit amet lacus vitae massa sodales aliquam at eget quam. Integer ultricies et magna quis accumsan.</p>
-					</div>
-                </div>
-                <!-- end service -->
-
-                <div class="service-widget">
-                    <div class="post-media wow fadeIn">
-                        <a href="uploads/service_04.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
-                        <img src="uploads/service_04.jpg" alt="" class="img-responsive img-rounded">
-                    </div>
-					<div class="service-dit">
-						<h3>Digital Design for Mac</h3>
-						<p>Praesent in neque congue sapien lobortis faucibus id eget erat. <br>Pellentesque maximus rutrum felis. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-					</div>
-                </div>
-                <!-- end service -->
-            </div><!-- end row -->
-
-            <hr class="hr1">
-
-            <div class="text-center">
-                <a data-scroll href="#portfolio" class="btn btn-light btn-radius btn-brd">View Our Portfolio</a>
-            </div>
         </div><!-- end container -->
     </div><!-- end section -->
 	
@@ -358,4 +264,10 @@
     @vite(['resources/js/app.js'])    
 
 </body>
+<style>
+  .gambar-kecil {
+    width: 100px;  /* Atur lebar */
+    height: auto;  /* Tinggi menyesuaikan */
+  }
+</style>
 </html>

@@ -15,8 +15,7 @@
     <meta name="author" content="">
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="{{ asset('images/apple-touch-icon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('images/logobadui1.webp') }}" type="image/png" />
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -27,10 +26,6 @@
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
-
-    <!-- Site Icons -->
-    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="{{ asset('images/apple-touch-icon.png') }}">
 
     <!-- Panggil file CSS dan JavaScript menggunakan Vite -->
     @vite(['resources/js/app.js'])
@@ -61,6 +56,7 @@
                         <li><a href="{{ url('/aboutUs') }}">about us</a></li>
                         <li><a href="{{ url('/marketplace') }}">produk</a></li>
                         <li><a href="{{ url('/artikel') }}">artikel</a></li>
+                        <li><a href="{{ url('/login') }}">Login</a></li>
                     </ul>
                 </div>
             </div>

@@ -5,18 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Produk Suku Baduy</title>
+    <link rel="shortcut icon" href="{{ asset('images/logobadui1.webp') }}" type="image/png" />
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
-
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -27,7 +17,6 @@
     <header class="header header_style_01">
         <nav class="megamenu navbar navbar-default">
             <div class="container-fluid">
-                <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -35,15 +24,13 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="index.html"><img src="images/logos/logo.png" alt="image"></a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ url('/') }}">Home</a></li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ url('/') }}">Home</a></li>
                         <li><a href="{{ url('/aboutUs') }}">about us</a></li>
                         <li><a href="{{ url('/marketplace') }}">produk</a></li>
                         <li><a href="{{ url('/artikel') }}">artikel</a></li>
+                        <li><a href="{{ url('/login') }}">Login</a></li>
                     </ul>
-                </div>
             </div>
         </nav>
     </header>
