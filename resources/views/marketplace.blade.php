@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Produk Suku Baduy</title>
+    <title>Baduy Product</title>
     <link rel="shortcut icon" href="{{ asset('images/logobadui1.webp') }}" type="image/png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <!--[if lt IE 9]>
@@ -23,7 +23,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="images/logos/logo.png" alt="image"></a>
+                    <a class="navbar-brand" href="index.html"><img src="images/logobadui1.webp" class="gambar-kecil" alt="image"></a>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ url('/') }}">Home</a></li>
                         <li><a href="{{ url('/aboutUs') }}">about us</a></li>

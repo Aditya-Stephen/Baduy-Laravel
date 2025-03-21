@@ -49,6 +49,11 @@
     SKELETON
 -------------------------------------------------------------------*/
 
+.gambar-kecil {
+    width: 65px;  /* Atur lebar */
+    height: auto;  /* Tinggi menyesuaikan */
+  }
+
 body {
     color: #999;
     font-size: 15px;
@@ -409,7 +414,7 @@ a img.aligncenter {
 }
 
 .header_style_01 {
-    background-color: #021526   ;
+    background-color: #021526 !important;
     display: block;
     left: 0;
     padding: 20px 40px !important;

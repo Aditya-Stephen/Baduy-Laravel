@@ -264,10 +264,5 @@
     @vite(['resources/js/app.js'])    
 
 </body>
-<style>
-  .gambar-kecil {
-    width: 100px;  /* Atur lebar */
-    height: auto;  /* Tinggi menyesuaikan */
-  }
-</style>
+
 </html>
