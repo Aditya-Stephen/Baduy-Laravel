@@ -34,7 +34,7 @@
 
 </head>
 <body>
-<header class="header header_style_01">
+    <header class="header header_style_01">
         <nav class="megamenu navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -44,12 +44,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="images/logobadui1.webp" class="gambar-kecil" alt="image"></a>
+                    <a class="navbar-brand" href="{{ url('/') }}"><img src="images/logobadui1.webp" class="gambar-kecil" alt="image"></a>
                     
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a class="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/') }}">Home</a></li>
                         <li><a href="{{ url('/aboutUs') }}">About Us</a></li>
                         <li><a href="{{ url('/marketplace') }}">Product</a></li>
                         <li><a href="{{ url('/artikel') }}">Article</a></li>
@@ -67,8 +67,8 @@
 					<div class="row">
 						<div class="slider-content-area">
 							<div class="slide-text">
-								<h1 class="homepage-three-title">Outstanding <span>Installation</span> Services</h1>
-								<h2>With GoodWEB Solutions responsive landing page template, <br>you can promote your all web design & development services. </h2>
+								<h1 class="homepage-three-title">Konten <span>Article</span> Slider</h1>
+								<h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius soluta quo, error alias quod facere suscipit deleniti ullam aperiam laudantium ad quis iusto in quae, molestias consectetur eligendi. Sed, delectus. </h2>
 								<div class="slider-content-btn">
 									<a class="button btn btn-light btn-radius btn-brd" href="#">Read More</a>
 									<a class="button btn btn-light btn-radius btn-brd" href="#">Contact</a>
@@ -83,8 +83,8 @@
 					<div class="row">
 						<div class="slider-content-area">
 							<div class="slide-text">
-								<h1 class="homepage-three-title">Outstanding <span>Installation</span> Services</h1>
-								<h2>With GoodWEB Solutions responsive landing page template, <br>you can promote your all web design & development services. </h2>
+								<h1 class="homepage-three-title">Konten <span>Article</span> Slider</h1>
+								<h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente rem nisi facilis pariatur. Culpa, nihil voluptatibus! Totam accusantium, excepturi vel illo amet ex, distinctio corporis autem itaque sapiente facere qui! </h2>
 								<div class="slider-content-btn">
 									<a class="button btn btn-light btn-radius btn-brd" href="#">Read More</a>
 									<a class="button btn btn-light btn-radius btn-brd" href="#">Contact</a>
@@ -99,8 +99,8 @@
 					<div class="row">
 						<div class="slider-content-area">
 							<div class="slide-text">
-								<h1 class="homepage-three-title">Outstanding <span>Installation</span> Services</h1>
-								<h2>With GoodWEB Solutions responsive landing page template, <br>you can promote your all web design & development services.</h2>
+								<h1 class="homepage-three-title">Konten <span>Article</span> Slider</h1>
+								<h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus tempora quasi, reiciendis obcaecati illum quas vero hic est iste, assumenda similique enim beatae adipisci, rerum ut incidunt corporis numquam vitae!</h2>
 								<div class="slider-content-btn">
 									<a class="button btn btn-light btn-radius btn-brd" href="#">Read More</a>
 									<a class="button btn btn-light btn-radius btn-brd" href="#">Contact</a>
@@ -147,8 +147,8 @@
 				
                 <div class="col-md-6">
                     <div class="message-box">
-                        <h4>Who We are</h4>
-                        <h2>We Are GoodWEB Solutions</h2>
+                        <h4>Konten</h4>
+                        <h2>Konten</h2>
                         <p class="lead">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
 
                         <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed vitae rutrum neque. Ut id erat sit amet libero bibendum aliquam. Donec ac egestas libero, eu bibendum risus. Phasellus et congue justo. </p>
@@ -195,7 +195,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="widget clearfix">
                         <div class="widget-title">
-                            <img src="images/logos/logo-2.png" alt="" />
+                            <img src="images/logobadui1.webp" class="gambar-kecil" alt="" />
                         </div>
                         <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
                         <p>Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
@@ -209,12 +209,10 @@
                         </div>
 
                         <ul class="footer-links hov">
-                            <li><a href="#">Home <span class="icon icon-arrow-right2"></span></a></li>
-							<li><a href="#">Blog <span class="icon icon-arrow-right2"></span></a></li>
-							<li><a href="#">Pricing <span class="icon icon-arrow-right2"></span></a></li>
-							<li><a href="#">About <span class="icon icon-arrow-right2"></span></a></li>
-							<li><a href="#">Faq <span class="icon icon-arrow-right2"></span></a></li>
-							<li><a href="#">Contact <span class="icon icon-arrow-right2"></span></a></li>
+                        <li><a class="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/aboutUs') }}">About Us</a></li>
+                        <li><a href="{{ url('/marketplace') }}">Product</a></li>
+                        <li><a href="{{ url('/artikel') }}">Article</a></li>
                         </ul><!-- end links -->
                     </div><!-- end clearfix -->
                 </div><!-- end col -->
@@ -237,19 +235,6 @@
             </div><!-- end row -->
         </div><!-- end container -->
     </footer><!-- end footer -->
-
-    <div class="copyrights">
-        <div class="container">
-            <div class="footer-distributed">
-                <div class="footer-left">                   
-                    <p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="#">GoodWEB</a> Design By : 
-					<a href="https://html.design/">html design</a></p>
-                </div>
-
-                
-            </div>
-        </div><!-- end container -->
-    </div><!-- end copyrights -->
 
     <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
 

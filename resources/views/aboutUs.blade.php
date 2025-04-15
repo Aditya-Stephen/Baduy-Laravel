@@ -52,9 +52,9 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="{{ url('/aboutUs') }}">about us</a></li>
-                        <li><a href="{{ url('/marketplace') }}">produk</a></li>
-                        <li><a href="{{ url('/artikel') }}">artikel</a></li>
+                        <li><a href="{{ url('/aboutUs') }}">About Us</a></li>
+                        <li><a href="{{ url('/marketplace') }}">Product</a></li>
+                        <li><a href="{{ url('/artikel') }}">Article</a></li>
                         <li><a href="{{ url('/login') }}">Login</a></li>
                     </ul>
                 </div>
@@ -95,8 +95,8 @@
 
                 <div class="col-md-6">
                     <div class="post-media wow fadeIn">
-                        <img src="uploads/about_01.jpg" alt="" class="img-responsive img-rounded">
-                        <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
+                        <img src="images/Foto Bareng.jpg" alt="" class="img-responsive img-rounded">
+                        <a href="images/Sambutan Kepala Desa.mp4" class="playbutton"><i class="flaticon-play-button"></i></a>
                     </div><!-- end media -->
                 </div><!-- end col -->
             </div><!-- end row -->
@@ -112,8 +112,8 @@
 				
                 <div class="col-md-6">
                     <div class="message-box">
-                        <h4>Who We are</h4>
-                        <h2>We Are GoodWEB Solutions</h2>
+                        <h4>Konten</h4>
+                        <h2>Konten</h2>
                         <p class="lead">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
 
                         <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed vitae rutrum neque. Ut id erat sit amet libero bibendum aliquam. Donec ac egestas libero, eu bibendum risus. Phasellus et congue justo. </p>
@@ -131,7 +131,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="widget clearfix">
                         <div class="widget-title">
-                            <img src="images/logos/logo-2.png" alt="" />
+                            <img src="images/logobadui1.webp" class="gambar-kecil" alt="" />
                         </div>
                         <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
                         <p>Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
@@ -145,12 +145,10 @@
                         </div>
 
                         <ul class="footer-links hov">
-                            <li><a href="#">Home <span class="icon icon-arrow-right2"></span></a></li>
-							<li><a href="#">Blog <span class="icon icon-arrow-right2"></span></a></li>
-							<li><a href="#">Pricing <span class="icon icon-arrow-right2"></span></a></li>
-							<li><a href="#">About <span class="icon icon-arrow-right2"></span></a></li>
-							<li><a href="#">Faq <span class="icon icon-arrow-right2"></span></a></li>
-							<li><a href="#">Contact <span class="icon icon-arrow-right2"></span></a></li>
+                        <li><a class="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/aboutUs') }}">About Us</a></li>
+                        <li><a href="{{ url('/marketplace') }}">Product</a></li>
+                        <li><a href="{{ url('/artikel') }}">Article</a></li>
                         </ul><!-- end links -->
                     </div><!-- end clearfix -->
                 </div><!-- end col -->
@@ -173,19 +171,6 @@
             </div><!-- end row -->
         </div><!-- end container -->
     </footer><!-- end footer -->
-
-    <div class="copyrights">
-        <div class="container">
-            <div class="footer-distributed">
-                <div class="footer-left">                   
-                    <p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="#">GoodWEB</a> Design By : 
-					<a href="https://html.design/">html design</a></p>
-                </div>
-
-                
-            </div>
-        </div><!-- end container -->
-    </div><!-- end copyrights -->
 
     <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
 

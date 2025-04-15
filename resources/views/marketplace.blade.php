@@ -26,9 +26,9 @@
                     <a class="navbar-brand" href="index.html"><img src="images/logobadui1.webp" class="gambar-kecil" alt="image"></a>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="{{ url('/aboutUs') }}">about us</a></li>
-                        <li><a href="{{ url('/marketplace') }}">produk</a></li>
-                        <li><a href="{{ url('/artikel') }}">artikel</a></li>
+                        <li><a href="{{ url('/aboutUs') }}">About Us</a></li>
+                        <li><a href="{{ url('/marketplace') }}">Product</a></li>
+                        <li><a href="{{ url('/artikel') }}">Article</a></li>
                         <li><a href="{{ url('/login') }}">Login</a></li>
                     </ul>
             </div>
@@ -101,7 +101,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="widget clearfix">
                         <div class="widget-title">
-                            <img src="images/logos/logo-2.png" alt="" />
+                            <img src="images/logobadui1.webp" class="gambar-kecil" alt="" />
                         </div>
                         <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
                         <p>Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
@@ -115,12 +115,10 @@
                         </div>
 
                         <ul class="footer-links hov">
-                            <li><a href="#">Home <span class="icon icon-arrow-right2"></span></a></li>
-							<li><a href="#">Blog <span class="icon icon-arrow-right2"></span></a></li>
-							<li><a href="#">Pricing <span class="icon icon-arrow-right2"></span></a></li>
-							<li><a href="#">About <span class="icon icon-arrow-right2"></span></a></li>
-							<li><a href="#">Faq <span class="icon icon-arrow-right2"></span></a></li>
-							<li><a href="#">Contact <span class="icon icon-arrow-right2"></span></a></li>
+                        <li><a class="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/aboutUs') }}">About Us</a></li>
+                        <li><a href="{{ url('/marketplace') }}">Product</a></li>
+                        <li><a href="{{ url('/artikel') }}">Article</a></li>
                         </ul><!-- end links -->
                     </div><!-- end clearfix -->
                 </div><!-- end col -->
@@ -143,19 +141,6 @@
             </div><!-- end row -->
         </div><!-- end container -->
     </footer><!-- end footer -->
-
-    <div class="copyrights">
-        <div class="container">
-            <div class="footer-distributed">
-                <div class="footer-left">                   
-                    <p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="#">GoodWEB</a> Design By : 
-					<a href="https://html.design/">html design</a></p>
-                </div>
-
-                
-            </div>
-        </div><!-- end container -->
-    </div><!-- end copyrights -->
 
     <!-- ALL JS FILES -->
     <script src="{{ asset('js/all.js') }}"></script>
