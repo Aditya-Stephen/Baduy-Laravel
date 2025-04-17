@@ -460,6 +460,7 @@ a img.aligncenter {
 .header_style_01 .navbar-right > li > a {
     padding-bottom: 10px;
     padding-top: 10px;
+    z-index: 1000;
 }
 
 li.social-links {
@@ -892,7 +893,7 @@ li.social-links a {
 
 
 /*------------------------------------------------------------------
-    TESTIMONIALS
+    ARTIKEL
 -------------------------------------------------------------------*/
 
 .logos img {
@@ -972,6 +973,301 @@ li.social-links a {
     display: none;
 }
 
+/* search bar*/
+:root {
+  --rad: 2rem;
+  --dur: .1s;
+  --color-dark: #2f2f2f;
+  --color-light: #fff;
+  --color-brand: #fcbf02;
+  --font-fam: 'Lato', sans-serif;
+  --height: 5rem;
+  --btn-width: 6rem;
+  --bez: cubic-bezier(0, 0, 0.43, 1.49);
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 10px;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+form {
+  left: 10%;
+  position: absolute; 
+  top: 1rem; 
+  width: 30rem;
+  background: var(--color-brand);
+  border-radius: var(--rad);
+  transform: none; 
+  margin: 0; 
+  z-index: 1000; 
+}
+
+input, button {
+  height: var(--height);
+  font-family: var(--font-fam);
+  border: 0;
+  color: var(--color-dark);
+  font-size: 1.8rem;
+}
+
+input[type="search"] {
+  outline: 0;
+  width: 100%;
+  background: var(--color-light);
+  padding: 0 1.6rem;
+  border-radius: var(--rad);
+  appearance: none;
+  transition: all var(--dur) var(--bez);
+  transition-property: width, border-radius;
+  z-index: 1;
+  position: relative;
+}
+
+button {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--btn-width);
+  font-weight: bold;
+  background: var(--color-brand);
+  border-radius: 0 var(--rad) var(--rad) 0;
+  cursor: pointer;
+}
+
+input:not(:placeholder-shown) {
+  border-radius: var(--rad) 0 0 var(--rad);
+  width: calc(100% - var(--btn-width));
+}
+
+input:not(:placeholder-shown) + button {
+  display: block;
+}
+
+label {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+
+/* banner dan artikel section*/
+
+.banner-bg-artikel{
+    background-image: url('../images/banner-artikel.jpg');
+	padding: 120px 0;	
+	background-clip: initial;
+	background-color: rgba(0, 0, 0, 0);
+	background-origin: initial;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	z-index: 0;
+}
+
+.banner {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
+
+}
+
+/* banner buat hp*/
+@media (max-width: 768px) {
+    .banner {
+        height: 200px;
+        background-size: contain;
+    }
+}
+
+
+.article-section {
+    padding: 50px 0;
+}
+
+.article-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.article-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.article-content ul li {
+    margin-bottom: 10px;
+}
+
+.author-profile {
+    margin-right: 20px;
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.article-post {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.article-post h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.article-post h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.article-post .date {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.article-post p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    color: #007bff;
+    text-decoration: none;
+    transition: text-decoration 0.2s ease;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+    text-decoration-color: #007bff;
+}
+
+.sidebar {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.sidebar h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    color: #007bff;
+}
+
+/* Style untuk Category Bar */
+.category-bar {
+    background-color: #f8f9fa; /* Warna background */
+    padding: 15px 0;
+    border-bottom: 1px solid #e9ecef; /* Garis bawah */
+}
+
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between; /* Membuat kategori sejajar horizontal */
+    flex-wrap: wrap; /* Jika kategori terlalu banyak, akan turun ke baris baru */
+}
+
+.category-list li {
+    margin: 0 10px; /* Jarak antar kategori */
+}
+
+.category-list li a {
+    text-decoration: none;
+    color: #333; /* Warna teks */
+    font-size: 16px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.category-list li a:hover {
+    background-color: #007bff; /* Warna background saat hover */
+    color: #fff; /* Warna teks saat hover */
+}
+
+/*------------------------------------------------------------------
+     DETAIL ARTIKEL
+-------------------------------------------------------------------*/
+
+.article-detail-section {
+    padding: 50px 0;
+}
+
+.article-detail-content {
+    background: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.article-detail-content h1 {
+    font-size: 2rem;
+    margin: 20px 0;
+    color: #333;
+}
+
+.article-full-content {
+    line-height: 1.8;
+    font-size: 2rem;
+    color: #444;
+    margin: 30px 0;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #3b82f6;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.back-button:hover {
+    background: #2563eb;
+    text-decoration: none;
+}
 
 /*------------------------------------------------------------------
     PRICING TABLES

@@ -49,13 +49,19 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="index.html"><img src="images/logobadui1.webp" class="gambar-kecil" alt="image"></a>
+                    <!-- fitur searching -->
+                    <form action="{{ url('/artikel') }}" method="GET" class="search-container" role="search">
+                        <label for="search">Cari artikel</label>
+                        <input id="search" type="search" name="search" placeholder="Cari artikel..." required autofocus />
+                        <button type="submit">GO</button> 
+                    </form>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="{{ url('/') }}">Home</a></li>
                         <li><a href="{{ url('/aboutUs') }}">about us</a></li>
-                        <li><a href="{{ url('/marketplace') }}">produk</a></li>
-                        <li><a href="{{ url('/artikel') }}">artikel</a></li>
+                        <li><a href="{{ url('/marketplace') }}">Product</a></li>
+                        <li><a href="{{ url('/artikel') }}">Article</a></li>
                         <li><a href="{{ url('/login') }}">Login</a></li>
                     </ul>
                 </div>
@@ -63,7 +69,7 @@
         </nav>
     </header>
 
-   	<div class="banner-area banner-bg-1">
+   	<div class="banner-area banner-bg-artikel">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -79,55 +85,66 @@
 		</div>
 	</div>
 
-
-    <div class="article-section">
+        <!-- Section Kategori Horizontal -->
+    <div class="category-bar">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
-                    <div class="article-content">
-                        <!-- Artikel Pertama -->
-                        <div class="article-post">
-                            <div class="author-profile">
-                                <img src="{{ asset('images/user-profile.jpg') }}" alt="Frederick O’Brien" class="profile-image">
-                            </div>
-                            <div class="post-content">
-                                <h3>Frederick O’Brien</h3>
-                                <h4>Svette 5 And The Future Of Frameworks: A Chat With Rich Harris</h4>
-                                <p class="date">JANUARY 28, 2025</p>
-                                <p>After months of anticipation, debate, and even a bit of apprehension, Svelte 5 arrived earlier this year. Frederick O’Brien caught up with its creator, Rich Harris, to talk about the path that brought him and his team here and what lies ahead.</p>
-                                <a href="#" class="read-more">Read more...</a>
-                            </div>
-                        </div>
-    
-                        <!-- Artikel Kedua -->
-                        <div class="article-post">
-                            <div class="author-profile">
-                                <img src="{{ asset('images/user-profile.jpg') }}" alt="Always Salvation Users" class="profile-image">
-                            </div>
-                            <div class="post-content">
-                                <h3>Always Salvation Users</h3>
-                                <p>Artikel tentang Always Salvation Users.</p>
-                                <a href="#" class="read-more">Read more...</a>
-                            </div>
-                        </div>
-                    </div>
-                <div class="col-md-4">
-                    <div class="sidebar">
-                        <h3>Kategori</h3>
-                        <ul>
-                            <li><a href="#">Trending</a></li>
-                            <li><a href="#">Terbaru</a></li>
-                            <li><a href="#">Budaya & Tradisi</a></li>
-                            <li><a href="#">Kearifan Lokal</a></li>
-                            <li><a href="#">Mitos & Kepercayaan</a></li>
-                        </ul>
-                    </div>
+                <div class="col-md-12">
+                    <ul class="category-list">
+                        <li><a href="#">Trending</a></li>
+                        <li><a href="#">Terbaru</a></li>
+                        <li><a href="#">Budaya & Tradisi</a></li>
+                        <li><a href="#">Kearifan Lokal</a></li>
+                        <li><a href="#">Mitos & Kepercayaan</a></li>
+                        <li><a href="#">lokasi</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 
-
+    <div id="article-section" class="article-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="article-content">
+                        @if(request()->has('search'))
+                            @if($articles->isEmpty())
+                                <div class="alert alert-warning">
+                                    Tidak ditemukan hasil untuk: <strong>{{ request('search') }}</strong>
+                                </div>
+                            @else
+                                <div class="alert alert-success">
+                                    Menampilkan hasil untuk: <strong>{{ request('search') }}</strong>
+                                </div>
+                            @endif
+                        @endif
+                        <!-- Artikel Pertama --> <!-- Tampilkan daftar artikel -->
+                        @foreach ($articles as $article)
+                            <div class="article-post">
+                                <div class="author-profile">
+                                    <img src="{{ $article->profile_picture }}" alt="{{ $article->author_name }}" class="profile-image">
+                                </div>
+                                <div class="post-content">
+                                    <!-- Nama penulis -->
+                                    <h3>{{ $article->author_name }}</h3>
+                                    <!-- Judul artikel -->
+                                    <h4>{{ $article->title }}</h4>
+                                    <!-- Tanggal artikel -->
+                                    <p class="date">{{ $article->created_at->format('F j, Y') }}</p>
+                                    <!-- Potongan isi artikel -->
+                                    <p>{{ Str::limit($article->content, 150) }}</p>
+                                    <!-- Link baca lebih banyak -->
+                                    <a href="{{ route('artikel.show', $article->id) }}" class="read-more">Baca lebih banyak...</a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div id="test-box" class="section wb">
         <div class="container">
             <div class="row">
@@ -297,14 +314,16 @@
 
     <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
 
-    <!-- ALL JS FILES -->
+   <!-- JS Files -->
     <script src="{{ asset('js/all.js') }}"></script>
-    <!-- ALL PLUGINS -->
-    <script src="{{ asset('js/custom.js') }}"></script>
     <script src="{{ asset('js/portfolio.js') }}"></script>
     <script src="{{ asset('js/hoverdir.js') }}"></script>
     <script src="{{ asset('js/modernizer.js') }}"></script>
-    <!-- jika pake vite -->
+
+    <!-- Panggil custom.js PALING BAWAH -->
+    <script src="{{ asset('js/custom.js') }}"></script>
+
+    <!-- Jika pakai Vite, panggilan ini HARUS yang terakhir -->
     @vite(['resources/js/app.js'])
 
 </body>

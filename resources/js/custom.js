@@ -177,4 +177,66 @@
         });
     });
 
+    /* ==============================================
+     SEARCH BAR -->
+     =============================================== */
+     $(document).ready(function() {
+        $('#searchForm').on('submit', function(e) {
+            e.preventDefault(); // Mencegah form submit default
+
+            var query = $('#searchQuery').val(); // Ambil nilai pencarian
+
+            // Kirim permintaan AJAX
+            $.ajax({
+                url: "{{ url('/search') }}", // URL endpoint pencarian
+                type: "GET",
+                data: { query: query }, // Data yang dikirim
+                success: function(response) {
+                    // Perbarui section artikel dengan hasil pencarian
+                    $('#articleSection').html(response);
+                },
+                error: function(xhr) {
+                    console.log(xhr.responseText); // Tampilkan pesan error di console
+                }
+            });
+        });
+    });
+
+    /* ==============================================
+      SEARHING UNTUK ARTIKEL
+     =============================================== */
+     document.addEventListener('DOMContentLoaded', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+    
+        // Scroll otomatis ke atas section artikel jika ada pencarian
+        if (urlParams.has('search')) {
+            const articleSection = document.getElementById('article-section');
+            if (articleSection) {
+                setTimeout(() => {
+                    const yOffset = -100; // Ubah sesuai tinggi navbar (misal -80 atau -100)
+                    const y = articleSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        
+                    window.scrollTo({
+                        top: y,
+                        behavior: 'smooth'
+                    });
+                }, 300); // delay sedikit biar kontennya pasti muncul
+            }
+        }
+    
+        // Auto dismiss alert setelah 5 detik
+        const alerts = document.querySelectorAll('.alert');
+        alerts.forEach(function(alert) {
+            setTimeout(() => {
+                alert.style.transition = 'opacity 0.5s ease';
+                alert.style.opacity = '0';
+                setTimeout(() => {
+                    alert.remove();
+                }, 500); // Waktu fade out
+            }, 5000); // Tampilkan 5 detik
+        });
+    });
+    
+
+
 })(jQuery);
