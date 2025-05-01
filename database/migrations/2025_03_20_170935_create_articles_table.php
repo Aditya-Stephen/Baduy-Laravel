@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('profile_picture'); 
             $table->string('title'); 
             $table->text('content'); 
-            $table->timestamps();
+            $table->string('header_image')->nullable(); 
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

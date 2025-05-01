@@ -14,6 +14,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <!-- font tambahan -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Site Icons -->
     <link rel="shortcut icon" href="{{ asset('images/logobadui1.webp') }}" type="image/png" />
 
@@ -48,7 +51,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="images/logobadui1.webp" class="gambar-kecil" alt="image"></a>
+                    <a class="navbar-brand" href="{{ url('/artikel') }}"><img src="images/logobadui1.webp" class="gambar-kecil" alt="image"></a>
                     <!-- fitur searching -->
                     <form action="{{ url('/artikel') }}" method="GET" class="search-container" role="search">
                         <label for="search">Cari artikel</label>
@@ -125,13 +128,19 @@
                                 <div class="author-profile">
                                     <img src="{{ $article->profile_picture }}" alt="{{ $article->author_name }}" class="profile-image">
                                 </div>
-                                <div class="post-content">
+                                <div class="post-content12">
                                     <!-- Nama penulis -->
                                     <h3>{{ $article->author_name }}</h3>
                                     <!-- Judul artikel -->
-                                    <h4>{{ $article->title }}</h4>
+                                    <h4> <a href="{{ route('artikel.show', $article->id) }}" class="title-link">{{ $article->title }}</a> </h4>
                                     <!-- Tanggal artikel -->
-                                    <p class="date">{{ $article->created_at->format('F j, Y') }}</p>
+                                    <p class="date">
+                                        @if($article->created_at)
+                                            {{ $article->created_at->format('F j, Y') }}
+                                        @else
+                                            Tanggal tidak tersedia
+                                        @endif
+                                    </p>
                                     <!-- Potongan isi artikel -->
                                     <p>{{ Str::limit($article->content, 150) }}</p>
                                     <!-- Link baca lebih banyak -->
