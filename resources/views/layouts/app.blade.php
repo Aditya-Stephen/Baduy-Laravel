@@ -16,6 +16,7 @@
 
         <!-- Bootstrap 3.3.7 CSS (untuk navbar legacy) -->
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
         <!-- Styles -->
         @livewireStyles
