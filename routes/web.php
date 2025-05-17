@@ -12,10 +12,6 @@ Route::get('/', function () {
 
 // Middleware untuk halaman yang membutuhkan login
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
-    // Halaman dashboard
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
 
     // Routing ke halaman artikel
     Route::get('/artikel', [ArtikelController::class, 'index'])->name('artikel'); // Menampilkan daftar artikel
