@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<head>
     <!-- Basic -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
-   
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
- 
-     <!-- Site Metas -->
-    <title>HomePage Baduy project</title>  
+
+    <!-- Site Metas -->
+    <title>HomePage Baduy Project</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <link rel="shortcut icon" href="{{ asset('images/logobadui1.webp') }}" type="image/png" />
-
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 <body class="bg-gray-900">
 <header class="header header_style_01">
@@ -40,12 +34,33 @@
                         <li><a href="{{ url('/aboutUs') }}">About Us</a></li>
                         <li><a href="{{ url('/marketplace') }}">Product</a></li>
                         <li><a href="{{ url('/artikel') }}">Article</a></li>
-                        <li><a href="{{ url('/login') }}">Login</a></li>
+                        <!-- Menampilkan nama pengguna setelah login, atau tombol login jika belum login -->
+                        @auth
+                            <!-- Menampilkan nama pengguna yang login dengan menu dropdown -->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <button type="submit" class="btn btn-link" style="text-decoration: none; color: inherit;">
+                                                Logout
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @else
+                            <!-- Jika belum login, tampilkan tombol login -->
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                        @endauth
                     </ul>
             </div>
         </nav>
     </header>
-	
+    
 	<!-- <div class="slider-area">
 		<div class="slider-wrapper owl-carousel">
 			<div class="slider-item home-one-slider-otem slider-item-four slider-bg-one">
@@ -97,7 +112,7 @@
 				</div>
 			</div>
 		</div>
-	</div> -->
+	</div> 
 
     <div class="relative max-w-7xl mx-auto px-4 py-12">
         <!-- Slides wrapper -->
@@ -249,46 +264,43 @@
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="widget clearfix">
                         <div class="widget-title">
-                            <img src="images/logobadui1.webp" class="gambar-kecil" alt="" />
+                            <img src="{{ asset('images/logobadui1.webp') }}" class="gambar-kecil" alt="" />
                         </div>
-                        <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
-                        <p>Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
-                    </div><!-- end clearfix -->
-                </div><!-- end col -->
+                        <p>Integer rutrum ligula eu dignissim laoreet...</p>
+                    </div>
+                </div>
 
-				<div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="widget clearfix">
                         <div class="widget-title">
                             <h3>Pages</h3>
                         </div>
-
                         <ul class="footer-links hov">
-                        <li><a class="{{ url('/') }}">Home</a></li>
-                        <li><a href="{{ url('/aboutUs') }}">About Us</a></li>
-                        <li><a href="{{ url('/marketplace') }}">Product</a></li>
-                        <li><a href="{{ url('/artikel') }}">Article</a></li>
-                        </ul><!-- end links -->
-                    </div><!-- end clearfix -->
-                </div><!-- end col -->
-				
+                            <li><a href="{{ url('/') }}">Home</a></li>
+                            <li><a href="{{ url('/aboutUs') }}">About Us</a></li>
+                            <li><a href="{{ url('/marketplace') }}">Product</a></li>
+                            <li><a href="{{ url('/artikel') }}">Article</a></li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="footer-distributed widget clearfix">
                         <div class="widget-title">
                             <h3>Subscribe</h3>
-							<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which one know this tricks.</p>
+                            <p>There are many variations of passages...</p>
                         </div>
-						
-						<div class="footer-right">
-							<form method="get" action="#">
-								<input placeholder="Subscribe our newsletter.." name="search">
-								<i class="fa fa-envelope-o"></i>
-							</form>
-						</div>                        
-                    </div><!-- end clearfix -->
-                </div><!-- end col -->
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </footer><!-- end footer -->
+                        <div class="footer-right">
+                            <form method="get" action="#">
+                                <input placeholder="Subscribe our newsletter.." name="search">
+                                <i class="fa fa-envelope-o"></i>
+                            </form>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
 
@@ -299,6 +311,7 @@
     <script src="{{ asset('js/portfolio.js') }}"></script>
     <script src="{{ asset('js/hoverdir.js') }}"></script>
     <script src="{{ asset('js/modernizer.js') }}"></script>
+
     <script src="{{ asset('js/carousel.js') }}"></script>
     <!-- jika pake vite -->
     @vite(['resources/js/app.js'])    
