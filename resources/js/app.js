@@ -15,3 +15,4 @@ import './custom.js';
 import './portfolio.js';
 import './hoverdir.js';
 import './modernizer.js';
+import './carousel.js';
