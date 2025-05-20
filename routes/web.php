@@ -1,18 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\AuthController;
 
-
+// Halaman utama (Homepage) - dapat diakses tanpa login
 Route::get('/', function () {
     return view('homepage');
-})->middleware('auth');
+})->name('homepage');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
+// Middleware untuk halaman yang membutuhkan login
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
+    // Halaman dashboard
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -49,6 +49,18 @@ Route::get('/aboutUs', function () {
 })->name('aboutUs');
 
 
-//ROUTING KHUSUS ARTIKEL PAGE -->
-Route::get('/artikel', [ArtikelController::class, 'index'])->name('artikel');
-//Route::get('/search', [ArticleController::class, 'search'])->name('search');
+// Routing untuk halaman login
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login')->middleware('guest');
+
+// Routing untuk halaman registrasi
+Route::get('/register', function () {
+    return view('auth.register');
+})->name('register')->middleware('guest');
+
+// Rute logout
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect()->route('homepage');
+})->name('logout');
