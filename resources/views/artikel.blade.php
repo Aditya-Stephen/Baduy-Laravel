@@ -142,7 +142,7 @@
                                         @endif
                                     </p>
                                     <!-- Potongan isi artikel -->
-                                    <p>{{ Str::limit($article->content, 150) }}</p>
+                                    <p>{{ Str::limit($article->content, 400) }}</p>
                                     <!-- Link baca lebih banyak -->
                                     <a href="{{ route('artikel.show', $article->id) }}" class="read-more">Baca lebih banyak...</a>
                                 </div>
@@ -150,6 +150,10 @@
                         @endforeach
                     </div>
                 </div>
+            </div>
+
+            <div class="create-article-btn">
+                <a href="{{ route('artikel.create') }}" class="btn btn-primary">+ Buat Artikel Baru</a>
             </div>
         </div>
     </div>

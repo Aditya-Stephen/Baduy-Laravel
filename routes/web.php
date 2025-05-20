@@ -19,10 +19,25 @@ Route::middleware([
 });
 
 //routing ke halaman artikel
-Route::get('/artikel', function () {
-    return view('artikel'); 
-})->name('artikel'); 
-Route::get('/artikel/{id}', [ArtikelController::class, 'show'])->name('artikel.show');
+//Route::get('/artikel', function () {
+   // return view('artikel'); 
+//})->name('artikel'); 
+//Route::get('/artikel/{id}', [ArtikelController::class, 'show'])->name('artikel.show');
+
+// Routing Artikel (diperbarui)
+Route::controller(ArtikelController::class)->group(function () {
+    // Menampilkan daftar artikel
+    Route::get('/artikel', 'index')->name('artikel');
+    
+    // Menampilkan form tambah artikel
+    Route::get('/artikel/create', 'create')->name('artikel.create');
+    
+    // Menyimpan artikel baru
+    Route::post('/artikel', 'store')->name('artikel.store');
+    
+    // Menampilkan detail artikel
+    Route::get('/artikel/{id}', 'show')->name('artikel.show');
+});
 
 //routing ke produk
 Route::get('/marketplace', function () {
