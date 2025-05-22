@@ -109,18 +109,17 @@
 		</div>
 	</div>
 
-        <!-- Section Kategori Horizontal -->
+    <!-- Section Kategori Horizontal -->
     <div class="category-bar">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <ul class="category-list">
-                        <li><a href="#">Trending</a></li>
-                        <li><a href="#">Terbaru</a></li>
-                        <li><a href="#">Budaya & Tradisi</a></li>
-                        <li><a href="#">Kearifan Lokal</a></li>
-                        <li><a href="#">Mitos & Kepercayaan</a></li>
-                        <li><a href="#">lokasi</a></li>
+                        <li><a href="{{ route('artikel', ['genre' => 'all']) }}">Terbaru</a></li>
+                        <li><a href="{{ route('artikel', ['genre' => 'Budaya & Tradisi']) }}">Budaya & Tradisi</a></li>
+                        <li><a href="{{ route('artikel', ['genre' => 'Kearifan Lokal']) }}">Kearifan Lokal</a></li>
+                        <li><a href="{{ route('artikel', ['genre' => 'Mitos & Kepercayaan']) }}">Mitos & Kepercayaan</a></li>
+                        <li><a href="{{ route('artikel', ['genre' => 'Lokasi']) }}">Lokasi</a></li>
                     </ul>
                 </div>
             </div>
@@ -143,15 +142,24 @@
                                 </div>
                             @endif
                         @endif
+                        <!-- Letakkan di bagian atas sebelum loop artikel -->
+                        @if(session('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        @endif
                         <!-- Artikel Pertama --> <!-- Tampilkan daftar artikel -->
                         @foreach ($articles as $article)
                             <div class="article-post">
                                 <div class="author-profile">
-                                    <img src="{{ $article->profile_picture }}" alt="{{ $article->author_name }}" class="profile-image">
+                                    <img src="{{ $article->user->profile_photo_path ? asset('storage/'.$article->user->profile_photo_path) : asset('images/default-avatar.png') }}" alt="{{ $article->user->name }}" class="profile-image">                                
                                 </div>
                                 <div class="post-content12">
-                                    <!-- Nama penulis -->
-                                    <h3>{{ $article->author_name }}</h3>
+                                    <!-- Nama penulis & relasi user -->
+                                    <h3>{{ $article->user->name }}</h3>
                                     <!-- Judul artikel -->
                                     <h4> <a href="{{ route('artikel.show', $article->id) }}" class="title-link">{{ $article->title }}</a> </h4>
                                     <!-- Tanggal artikel -->

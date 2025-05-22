@@ -97,7 +97,7 @@
                         <div class="article-post">
                             <div class="post-content">
                                 <h1>{{ $article->title }}</h1>
-                                <p class="meta-info">Published by {{ $article->author_name }} on {{ $article->created_at->format('F j, Y') }}</p>
+                                <p class="meta-info">Published by {{ $article->user->name  }} on {{ $article->created_at->format('F j, Y') }}</p>
                                 <div class="article-full-content">
                                     {!! nl2br(e($article->content)) !!}
                                 </div>

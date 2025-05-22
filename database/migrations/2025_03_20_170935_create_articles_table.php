@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('articles', function (Blueprint $table) {
-            $table->id();
-            $table->string('author_name');
-            $table->string('profile_picture'); 
-            $table->string('title'); 
-            $table->text('content'); 
-            $table->string('header_image')->nullable(); 
-            $table->timestamp('created_at')->useCurrent();
+        $table->id();
+        $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Relasi ke user
+        $table->string('title');
+        $table->enum('genre', ['Budaya & Tradisi', 'Kearifan Lokal', 'Mitos & Kepercayaan', 'Lokasi'])->default('Budaya & Tradisi');
+        $table->text('content');
+        $table->string('header_image')->nullable();
+        $table->timestamp('created_at')->useCurrent();
         });
     }
 

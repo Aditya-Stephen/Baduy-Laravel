@@ -9,16 +9,17 @@ use Illuminate\Support\Carbon;
 class Article extends Model
 {
     use HasFactory;
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = null;
 
     protected $fillable = [
-        'author_name',
-        'profile_picture',
-        'title', 
+        'user_id',
+        'title',
+        'genre',
         'content',
-        'created_at',
-        'header_image'
+        'header_image',
+        'created_at'
     ];
 
     protected $dates = [
@@ -28,6 +29,11 @@ class Article extends Model
     protected $attributes = [
         'created_at' => null,
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     protected static function boot()
     {

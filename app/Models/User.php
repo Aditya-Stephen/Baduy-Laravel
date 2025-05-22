@@ -53,6 +53,14 @@ class User extends Authenticatable
     ];
 
     /**
+     * Get the articles for the user.
+     */
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>

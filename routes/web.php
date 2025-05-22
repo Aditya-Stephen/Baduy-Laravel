@@ -13,9 +13,9 @@ Route::get('/', function () {
 // Middleware untuk halaman yang membutuhkan login
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     // Halaman dashboard
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/', function () {
+        return view('homepage');
+    })->name('homepage');
 });
 
 //routing ke halaman artikel
@@ -24,18 +24,18 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 //})->name('artikel'); 
 //Route::get('/artikel/{id}', [ArtikelController::class, 'show'])->name('artikel.show');
 
-// Routing Artikel (diperbarui)
+// Routing Artikel baru
 Route::controller(ArtikelController::class)->group(function () {
     // Menampilkan daftar artikel
     Route::get('/artikel', 'index')->name('artikel');
-    
-    // Menampilkan form tambah artikel
-    Route::get('/artikel/create', 'create')->name('artikel.create');
-    
-    // Menyimpan artikel baru
-    Route::post('/artikel', 'store')->name('artikel.store');
-    
-    // Menampilkan detail artikel
+
+    Route::middleware('auth')->group(function () {
+        // Menyimpan artikel baru  
+        Route::post('/artikel', [ArtikelController::class, 'store'])->name('artikel.store');    
+        // Menampilkan form tambah artikel
+        Route::get('/artikel/create', [ArtikelController::class, 'create'])->name('artikel.create');
+    });
+    // nampilin detail artikel
     Route::get('/artikel/{id}', 'show')->name('artikel.show');
 });
 

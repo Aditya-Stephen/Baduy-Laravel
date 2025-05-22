@@ -9,15 +9,23 @@ class ArtikelController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
+        $query = Article::query()->with('user');
+        $genre = $request->input('genre');
+
+        if ($genre && $genre !== 'all') {
+            $query->where('genre', $genre);
+        }
 
         if ($search) {
-            $articles = Article::where('author_name', 'like', '%' . $search . '%')
-                ->orWhere('title', 'like', '%' . $search . '%')
-                ->latest()
-                ->get();
-        } else {
-            $articles = Article::latest()->get();
+            $query->where(function($q) use ($search) {
+                $q->where('title', 'like', '%'.$search.'%')
+                  ->orWhere('content', 'like', '%'.$search.'%')
+                  ->orWhereHas('user', function($userQuery) use ($search) {
+                      $userQuery->where('name', 'like', '%'.$search.'%');
+                  });
+            });
         }
+        $articles = $query->latest()->get();
 
         return view('artikel', compact('articles'));
     }
@@ -39,26 +47,25 @@ class ArtikelController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required|max:255',
-            'author_name' => 'required|max:100',
-            'profile_picture' => 'required|url',
+            'genre' => 'required|in:Budaya & Tradisi,Kearifan Lokal,Mitos & Kepercayaan,Lokasi',
             'content' => 'required',
             'header_image' => 'nullable|url'
         ]);
 
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
+
         Article::create([
+            'user_id' => auth()->id(),
             'title' => $validatedData['title'],
-            'author_name' => $validatedData['author_name'],
-            'profile_picture' => $validatedData['profile_picture'],
+            'genre' => $validatedData['genre'],
             'content' => $validatedData['content'],
             'header_image' => $validatedData['header_image'] ?? null,
             'created_at' => now()
         ]);
 
-        if (empty($validatedData['author_name'])) {
-            $validatedData['author_name'] = 'Guest Writer';
-        }
-
-        return redirect()->route('artikel.index')
+        return redirect()->route('artikel')
             ->with('success', 'Artikel berhasil dipublikasikan!');
     }
 }
