@@ -1303,6 +1303,154 @@ label {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.281);
 }
 
+.category-list li a.active {
+    background-color: #6d6d4f;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.category-list li a.active:hover {
+    background-color: #1a1d23;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .category-list {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .category-list li {
+        flex: 0 0 auto;
+    }
+    
+    .category-list li a {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
+
+/* button tambah artikel */
+.create-article-btn {
+    position: fixed;
+    bottom: 60px;
+    right: 50px;
+    z-index: 900;
+}
+
+/* Button styles */
+.plusButton {
+    /* Config */
+    --plus_sideLength: 5.5rem;
+    --plus_topRightTriangleSideLength: 1.2rem;
+    --button-color: #2f4f7f;
+    
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid white;
+    width: auto;
+    height: var(--plus_sideLength);
+    padding: 0 1.5rem;
+    background-color: var(--button-color);
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.plusButton::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-width: 0 var(--plus_topRightTriangleSideLength) var(--plus_topRightTriangleSideLength) 0;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Button text */
+.button-text {
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+/* Icon styles */
+.plusIcon {
+    fill: white;
+    width: calc(var(--plus_sideLength) * 0.5);
+    height: calc(var(--plus_sideLength) * 0.5);
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover effects */
+.plusButton:hover {
+    cursor: pointer;
+    background-color: #1a1d23;
+    padding-right: 2rem;
+}
+
+.plusButton:hover::before {
+    --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2.3);
+}
+
+.plusButton:hover .plusIcon {
+    fill: #1a1d23;
+    transform: rotate(180deg);
+}
+
+.plusButton:hover .button-text {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Focus effects */
+.plusButton:focus-visible::before {
+    --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 1.5);
+}
+
+.plusButton:focus-visible .plusIcon {
+    fill: white;
+    transform: rotate(180deg);
+}
+
+.plusButton:focus-visible .button-text {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .create-article-btn {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .plusButton {
+        --plus_sideLength: 3rem;
+        padding: 0 1rem;
+    }
+    
+    .button-text {
+        font-size: 0.9rem;
+    }
+}
+
 /*------------------------------------------------------------------
      DETAIL ARTIKEL
 -------------------------------------------------------------------*/

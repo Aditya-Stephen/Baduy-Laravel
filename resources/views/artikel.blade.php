@@ -98,10 +98,9 @@
 			<div class="row">
 				<div class="col-md-12">
                     <div class="banner">
-						<h2>Artikel</h2>
+						<h2>Welcome To Artikel</h2>
 						<ul class="page-title-link">
-							<li><a href="#">Home</a></li>
-							<li><a href="#">Artikel</a></li>
+							<li><a href="#">“Tak perlu listrik untuk menyinari kehidupan Baduy mengajarkan bahwa cahaya sejati berasal dari kesederhanaan dan keharmonisan.” </a></li>
 						</ul>
 					</div>
 				</div>
@@ -115,11 +114,26 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="category-list">
-                        <li><a href="{{ route('artikel', ['genre' => 'all']) }}">Terbaru</a></li>
-                        <li><a href="{{ route('artikel', ['genre' => 'Budaya & Tradisi']) }}">Budaya & Tradisi</a></li>
-                        <li><a href="{{ route('artikel', ['genre' => 'Kearifan Lokal']) }}">Kearifan Lokal</a></li>
-                        <li><a href="{{ route('artikel', ['genre' => 'Mitos & Kepercayaan']) }}">Mitos & Kepercayaan</a></li>
-                        <li><a href="{{ route('artikel', ['genre' => 'Lokasi']) }}">Lokasi</a></li>
+                        <li><a href="{{ route('artikel', ['genre' => 'all']) }}" 
+                               class="{{ !request('genre') || request('genre') == 'all' ? 'active' : '' }}">
+                            Terbaru
+                        </a></li>
+                        <li><a href="{{ route('artikel', ['genre' => request('genre') == 'Budaya & Tradisi' ? 'all' : 'Budaya & Tradisi']) }}" 
+                               class="{{ request('genre') == 'Budaya & Tradisi' ? 'active' : '' }}">
+                            Budaya & Tradisi
+                        </a></li>
+                        <li><a href="{{ route('artikel', ['genre' => request('genre') == 'Kearifan Lokal' ? 'all' : 'Kearifan Lokal']) }}" 
+                               class="{{ request('genre') == 'Kearifan Lokal' ? 'active' : '' }}">
+                            Kearifan Lokal
+                        </a></li>
+                        <li><a href="{{ route('artikel', ['genre' => request('genre') == 'Mitos & Kepercayaan' ? 'all' : 'Mitos & Kepercayaan']) }}" 
+                               class="{{ request('genre') == 'Mitos & Kepercayaan' ? 'active' : '' }}">
+                            Mitos & Kepercayaan
+                        </a></li>
+                        <li><a href="{{ route('artikel', ['genre' => request('genre') == 'Lokasi' ? 'all' : 'Lokasi']) }}" 
+                               class="{{ request('genre') == 'Lokasi' ? 'active' : '' }}">
+                            Lokasi
+                        </a></li>
                     </ul>
                 </div>
             </div>
@@ -155,7 +169,7 @@
                         @foreach ($articles as $article)
                             <div class="article-post">
                                 <div class="author-profile">
-                                    <img src="{{ $article->user->profile_photo_path ? asset('storage/'.$article->user->profile_photo_path) : asset('images/default-avatar.png') }}" alt="{{ $article->user->name }}" class="profile-image">                                
+                                    <img src="{{ $article->user->profile_photo_path ? (filter_var($article->user->profile_photo_path, FILTER_VALIDATE_URL) ? $article->user->profile_photo_path : asset('storage/'.$article->user->profile_photo_path)) : asset('images/user-profile.png') }}" alt="{{ $article->user->name }}" class="profile-image">                                
                                 </div>
                                 <div class="post-content12">
                                     <!-- Nama penulis & relasi user -->
@@ -182,130 +196,73 @@
             </div>
 
             <div class="create-article-btn">
-                <a href="{{ route('artikel.create') }}" class="btn btn-primary">+ Buat Artikel Baru</a>
+                <a href="{{ route('artikel.create') }}" class="plusButton" tabindex="0">
+                    <svg class="plusIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+                        <g mask="url(#mask0_21_345)">
+                            <path d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z"></path>
+                        </g>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
-    
-    <div id="test-box" class="section wb">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div class="testi-carousel owl-carousel owl-theme">
-                        <div class="testimonial clearfix">
-                            <div class="desc">
-                                <h3><i class="fa fa-quote-left"></i> Wonderful Support!</h3>
-                                <p class="lead">They have got my project on time with the competition with a sed highly skilled, and experienced & professional team.</p>
-                            </div>
-                            <div class="testi-meta">
-                                <img src="uploads/testi_01.png" alt="" class="img-responsive alignleft">
-                                <h4>James Fernando <small>- Manager of Racer</small></h4>
-                            </div>
-                            <!-- end testi-meta -->
-                        </div>
-                        <!-- end testimonial -->
 
-                        <div class="testimonial clearfix">
-                            <div class="desc">
-                                <h3><i class="fa fa-quote-left"></i> Awesome Services!</h3>
-                                <p class="lead">Explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you completed.</p>
-                            </div>
-                            <div class="testi-meta">
-                                <img src="uploads/testi_02.png" alt="" class="img-responsive alignleft">
-                                <h4>Jacques Philips <small>- Designer</small></h4>
-                            </div>
-                            <!-- end testi-meta -->
-                        </div>
-                        <!-- end testimonial -->
+    <!-- Article Carousel Section -->
+<div id="article-carousel" class="parallax section db" style="background-color: #f8f9fa; padding: 60px 0;">
+    <div class="container">
+        <div class="section-title text-center">
+            <h3>Artikel Terbaru</h3>
+            <p class="lead">Temukan artikel-artikel terbaru dari komunitas kami</p>
+        </div>
 
-                        <div class="testimonial clearfix">
-                            <div class="desc">
-                                <h3><i class="fa fa-quote-left"></i> Great & Talented Team!</h3>
-                                <p class="lead">The master-builder of human happines no one rejects, dislikes avoids pleasure itself, because it is very pursue pleasure. </p>
-                            </div>
-                            <div class="testi-meta">
-                                <img src="uploads/testi_03.png" alt="" class="img-responsive alignleft">
-                                <h4>Venanda Mercy <small>- Newyork City</small></h4>
-                            </div>
-                            <!-- end testi-meta -->
-                        </div>
-                        <!-- end testimonial -->
-                        <div class="testimonial clearfix">
-                            <div class="desc">
-                                <h3><i class="fa fa-quote-left"></i> Wonderful Support!</h3>
-                                <p class="lead">They have got my project on time with the competition with a sed highly skilled, and experienced & professional team.</p>
-                            </div>
-                            <div class="testi-meta">
-                                <img src="uploads/testi_01.png" alt="" class="img-responsive alignleft">
-                                <h4>James Fernando <small>- Manager of Racer</small></h4>
-                            </div>
-                            <!-- end testi-meta -->
-                        </div>
-                        <!-- end testimonial -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="articleCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        @foreach($carouselArticles as $key => $article)
+                            <li data-target="#articleCarousel" data-slide-to="{{ $key }}" class="{{ $key == 0 ? 'active' : '' }}"></li>
+                        @endforeach
+                    </ol>
 
-                        <div class="testimonial clearfix">
-                            <div class="desc">
-                                <h3><i class="fa fa-quote-left"></i> Awesome Services!</h3>
-                                <p class="lead">Explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you completed.</p>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        @foreach($carouselArticles as $key => $article)
+                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="carousel-image-container">
+                                            <img src="{{ $article->header_image ?? asset('images/default-header.jpg') }}" 
+                                                 alt="{{ $article->title }}" 
+                                                 class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="carousel-caption">
+                                            <h4>{{ $article->title }}</h4>
+                                            <p>{{ Str::limit($article->content, 200) }}</p>
+                                            <a href="{{ route('artikel.show', $article->id) }}" class="btn btn-primary">Baca Selengkapnya</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="testi-meta">
-                                <img src="uploads/testi_02.png" alt="" class="img-responsive alignleft">
-                                <h4>Jacques Philips <small>- Designer</small></h4>
-                            </div>
-                            <!-- end testi-meta -->
-                        </div>
-                        <!-- end testimonial -->
+                        @endforeach
+                    </div>
 
-                        <div class="testimonial clearfix">
-                            <div class="desc">
-                                <h3><i class="fa fa-quote-left"></i> Great & Talented Team!</h3>
-                                <p class="lead">The master-builder of human happines no one rejects, dislikes avoids pleasure itself, because it is very pursue pleasure. </p>
-                            </div>
-                            <div class="testi-meta">
-                                <img src="uploads/testi_03.png" alt="" class="img-responsive alignleft">
-                                <h4>Venanda Mercy <small>- Newyork City</small></h4>
-                            </div>
-                            <!-- end testi-meta -->
-                        </div><!-- end testimonial -->
-                    </div><!-- end carousel -->
-                </div><!-- end col -->
-            </div><!-- end row -->
-
-        </div><!-- end container -->
-    </div><!-- end section -->
-
-    <div id="testimonials" class="parallax section db parallax-off" style="background-image:url('uploads/parallax_03.jpg');">
-        <div class="container">
-            <div class="section-title text-center">
-                <h3>Our Clients</h3>
-                <p class="lead">We thanks for all our awesome testimonials! There are hundreds of our happy customers! <br>Let's see what others say about GoodWEB Solutions website template!</p>
-            </div><!-- end title -->
-
-            <hr class="hr1">
-
-            <div class="row logos">
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="uploads/logo_01.png" alt="" class="img-repsonsive"></a>
+                    <!-- Controls -->
+                    <a class="carousel-control-prev" href="#articleCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#articleCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="uploads/logo_02.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="uploads/logo_03.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="uploads/logo_04.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="uploads/logo_05.png" alt="" class="img-repsonsive"></a>
-                </div>
-                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
-                    <a href="#"><img src="uploads/logo_06.png" alt="" class="img-repsonsive"></a>
-                </div>
-            </div><!-- end row -->
-
-        </div><!-- end container -->
-    </div><!-- end section -->
+            </div>
+        </div>
+    </div>
+</div>
 
     <footer class="footer">
         <div class="container">

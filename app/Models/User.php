@@ -16,7 +16,6 @@ class User extends Authenticatable
 
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
-    use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
 
@@ -49,7 +48,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $appends = [
-        'profile_photo_url',
+        //'profile_photo_url',
     ];
 
     /**
@@ -59,6 +58,23 @@ class User extends Authenticatable
     {
         return $this->hasMany(Article::class);
     }
+
+    public function getProfilePhotoUrlAttribute()
+    {
+        // Jika menggunakan URL eksternal
+        if ($this->profile_photo_path && filter_var($this->profile_photo_path, FILTER_VALIDATE_URL)) {
+            return $this->profile_photo_path;
+        }
+        
+        // Jika menggunakan storage lokal
+        if ($this->profile_photo_path) {
+            return asset('storage/'.$this->profile_photo_path);
+        }
+    
+    // Default avatar
+    return asset('images/user-profile.png');
+}
+
 
     /**
      * Get the attributes that should be cast.

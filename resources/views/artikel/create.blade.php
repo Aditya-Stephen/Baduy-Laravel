@@ -1,4 +1,23 @@
 <body>
+        <div class="back-button12-container">
+          <a href="{{ route('artikel') }}" class="styled-wrapper back-button12">
+            <button class="button12">
+              <div class="button12-box">
+                <span class="button12-elem">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+                    <path fill="black" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+                  </svg>
+                </span>
+                <span class="button12-elem">
+                  <svg fill="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+                  </svg>
+                </span>
+              </div>
+            </button>
+          </a>
+        </div>
+
     <div class="container article-form">
         <h2>Buat Artikel Baru</h2>
         
@@ -164,4 +183,101 @@
         border-color: #4CAF50;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+
+    /* Style untuk back button */
+    .back-button12back-button12-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+  }
+  
+  .button-text {
+    margin-left: 10px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .back-button12:hover .button-text {
+    opacity: 1;
+  }
+  
+  .styled-wrapper .button12 {
+    display: block;
+    position: relative;
+    width: 76px;
+    height: 76px;
+    margin-left: 100px;
+    top: 140px;
+    overflow: hidden;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+  }
+  
+  .styled-wrapper .button12:before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    inset: 7px;
+    border: 4px solid rgb(255, 255, 255);
+    transition:
+      opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+      transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+  }
+  
+  .styled-wrapper .button12:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    inset: 7px;
+    border: 4px solid #ffffff;
+    transform: scale(1.3);
+    transition:
+      opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+      transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0;
+  }
+  
+  .styled-wrapper .button12:hover:before,
+  .styled-wrapper .button12:focus:before {
+    opacity: 0;
+    transform: scale(0.7);
+    transition:
+      opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+      transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .styled-wrapper .button12:hover:after,
+  .styled-wrapper .button12:focus:after {
+    opacity: 1;
+    transform: scale(1);
+    transition:
+      opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+      transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+  }
+  
+  .styled-wrapper .button12-box {
+    display: flex;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+  
+  .styled-wrapper .button12-elem {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 24px 18px 0 22px;
+    transform: rotate(360deg);
+    fill: #f0eeef;
+  }
+  
+  .styled-wrapper .button12:hover .button12-box,
+  .styled-wrapper .button12:focus .button12-box {
+    transition: 0.4s;
+    transform: translateX(-69px);
+  }
 </style>
